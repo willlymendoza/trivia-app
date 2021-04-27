@@ -32,7 +32,9 @@ function App() {
           payload: questionsResponse.results,
         });
       } catch (err) {
-        throw new Error(err);
+        throw new Error(
+          `There was an error trying to get the questions data: ${err}`
+        );
       } finally {
         dispatchLoader(false);
       }
