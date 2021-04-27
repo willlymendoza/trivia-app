@@ -10,7 +10,7 @@ const ResultsCard = () => {
   return (
     <div data-test="resultsCard">
       <h1>You scored</h1>
-      <h1>
+      <h1 data-test="scoreResult">
         {answersList.filter((answer) => answer.result).length} /{' '}
         {answersList.length}
       </h1>
