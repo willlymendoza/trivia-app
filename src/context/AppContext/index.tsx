@@ -3,9 +3,9 @@ import { AppProviderProps, AppStateContextProps } from '../../interfaces';
 import { initialState } from './initialState';
 import { appReducer } from './reducers/appReducer';
 
-const AppStateContext = React.createContext<AppStateContextProps | undefined>(
-  undefined
-);
+export const AppStateContext = React.createContext<
+  AppStateContextProps | undefined
+>(undefined);
 
 const AppProvider = ({ children }: AppProviderProps) => {
   const [state, dispatch] = React.useReducer(appReducer, initialState);

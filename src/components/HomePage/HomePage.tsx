@@ -16,6 +16,7 @@ const HomePage = () => {
       <h2>Can you score 100%?</h2>
 
       <button
+        data-test="beginButton"
         disabled={isLoading}
         onClick={() => dispatch({ type: 'setShowQuestionCard' })}
       >

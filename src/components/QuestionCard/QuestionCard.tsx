@@ -22,7 +22,7 @@ const QuestionCard = () => {
 
   return (
     <div data-test="questionCard">
-      <h1>{category}</h1>
+      <h1 data-test="categoryText">{category}</h1>
 
       <div data-test="questionText">
         <p>{question}</p>
