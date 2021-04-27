@@ -51,7 +51,6 @@ describe('App component', () => {
 
   test('Should call disptach when component is loaded', () => {
     expect(dispatch.mock.calls.length).toEqual(1);
-    console.log('FETCH: ', fetchQuestionsList.mock.calls.length);
   });
 
   test('Should only render QuestionCard component when showQuestionCard = true', () => {
