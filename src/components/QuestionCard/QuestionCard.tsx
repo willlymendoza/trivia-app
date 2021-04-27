@@ -1,6 +1,8 @@
+import { Button, Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import { useAppContext } from '../../context/AppContext';
 import { Answer } from '../../interfaces';
+import { decode } from 'html-entities';
 
 const QuestionCard = () => {
   const {
@@ -21,20 +23,42 @@ const QuestionCard = () => {
   };
 
   return (
-    <div data-test="questionCard">
-      <h1 data-test="categoryText">{category}</h1>
+    <Grid
+      container
+      justify="center"
+      alignItems="center"
+      item
+      xs={6}
+      data-test="questionCard"
+    >
+      <Typography variant="h5" data-test="categoryText">
+        {category}
+      </Typography>
 
-      <div data-test="questionText">
-        <p>{question}</p>
-      </div>
+      <Grid container justify="center" item data-test="questionText">
+        <Typography variant="h5">
+          {decode(question, { level: 'html5' })}
+        </Typography>
+      </Grid>
 
-      <span data-test="questionCounter">{currentQuestion + 1} of 10</span>
+      <Grid item xs={12}>
+        <Typography variant="subtitle1" data-test="questionCounter">
+          {currentQuestion + 1} of 10
+        </Typography>
+      </Grid>
 
-      <div data-test="anwserButtonGroup">
-        <button onClick={() => nextQuestion(true)}>True</button>
-        <button onClick={() => nextQuestion(false)}>False</button>
-      </div>
-    </div>
+      <Grid container justify="center" data-test="anwserButtonGroup">
+        <Grid spacing={1}>
+          <Button variant="contained" onClick={() => nextQuestion(false)}>
+            False
+          </Button>
+          {'   '}
+          <Button variant="contained" onClick={() => nextQuestion(true)}>
+            True
+          </Button>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 

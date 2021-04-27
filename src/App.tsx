@@ -6,6 +6,7 @@ import { ResultsCard } from './components/ResultsCard';
 import { request } from './utils/request';
 import { QuestionsResponse } from './interfaces/QuestionsResponse.interface';
 import './App.css';
+import { Box, Grid } from '@material-ui/core';
 
 function App() {
   const { state, dispatch } = useAppContext();
@@ -44,13 +45,13 @@ function App() {
   }, [dispatch, showHomePage]);
 
   return (
-    <div className="App">
+    <Grid container justify="center" className="App">
       {showHomePage && <HomePage />}
 
       {showQuestionCard && <QuestionCard />}
 
       {showResultsCard && <ResultsCard />}
-    </div>
+    </Grid>
   );
 }
 

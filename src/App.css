@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #ebedf0;
+  height: 100vh;
 }
 
 .App-logo {
@@ -26,6 +28,24 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.Correct-answer {
+  font-weight: bold;
+  color: green;
+  font-size: 35px;
+}
+
+.Wrong-answer {
+  font-weight: bold;
+  color: red;
+  font-size: 35px;
+}
+
+.Score-result-text {
+  color: gray;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 @keyframes App-logo-spin {
