@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import { useAppContext } from './context/AppContext';
-import { HomePage } from './components/HomePage';
-import { QuestionCard } from './components/QuestionCard';
-import { ResultsCard } from './components/ResultsCard';
-import { request } from './utils/request';
-import { QuestionsResponse } from './interfaces/QuestionsResponse.interface';
+import { useAppContext } from '../../context/AppContext';
+import { QuestionsResponse } from '../../interfaces';
+import { request } from '../../utils/request';
+import { HomePage } from '../HomePage';
+import { QuestionCard } from '../QuestionCard';
+import { ResultsCard } from '../ResultsCard';
+
 import './App.css';
 
 function App() {
