@@ -10,7 +10,14 @@ const ResultsCard = () => {
   } = useAppContext();
 
   return (
-    <Grid container justify="center" item xs={6} data-test="resultsCard">
+    <Grid
+      container
+      justify="center"
+      item
+      xs={11}
+      sm={6}
+      data-test="resultsCard"
+    >
       <Grid item xs={12}>
         <Typography variant="h5">You scored </Typography>
       </Grid>

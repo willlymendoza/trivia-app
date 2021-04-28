@@ -14,7 +14,8 @@ const HomePage = () => {
       justify="center"
       alignItems="center"
       item
-      xs={5}
+      xs={11}
+      sm={6}
       className="Home-page"
       data-test="mainPage"
     >

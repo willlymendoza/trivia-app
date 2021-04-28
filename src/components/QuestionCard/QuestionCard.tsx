@@ -28,10 +28,11 @@ const QuestionCard = () => {
       justify="center"
       alignItems="center"
       item
-      xs={6}
+      xs={11}
+      sm={6}
       data-test="questionCard"
     >
-      <Typography variant="h5" data-test="categoryText">
+      <Typography variant="h4" data-test="categoryText">
         {category}
       </Typography>
 
