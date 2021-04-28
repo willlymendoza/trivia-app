@@ -49,7 +49,7 @@ const QuestionCard = () => {
       </Grid>
 
       <Grid container justify="center" data-test="anwserButtonGroup">
-        <Grid spacing={1}>
+        <Grid>
           <Button variant="contained" onClick={() => nextQuestion(false)}>
             False
           </Button>
