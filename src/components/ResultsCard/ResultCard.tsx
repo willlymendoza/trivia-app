@@ -9,6 +9,14 @@ const ResultsCard = () => {
     dispatch,
   } = useAppContext();
 
+  const ResultListDiv = (props: any) => (
+    <div {...props} data-test="resultsList" />
+  );
+
+  const ResultItemDiv = (props: any) => (
+    <div data-test="resultItem" {...props} />
+  );
+
   return (
     <Grid
       container
@@ -27,9 +35,10 @@ const ResultsCard = () => {
           {answersList.length}
         </Typography>
       </Grid>
-      <Grid item data-test="resultsList">
+
+      <Grid item component={ResultListDiv}>
         {answersList.map((answer, index) => (
-          <Grid item container data-test="resultItem" key={index}>
+          <Grid item container component={ResultItemDiv} key={index}>
             <Grid container item direction="column" justify="center" xs={2}>
               <Grid
                 className={answer.result ? 'Correct-answer' : 'Wrong-answer'}

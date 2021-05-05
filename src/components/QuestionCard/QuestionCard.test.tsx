@@ -43,17 +43,17 @@ describe('HomePage component', () => {
   });
 
   test('Should render properly', () => {
-    const Component = findByTestAttr(wrapper, 'questionCard');
+    const Component = findByTestAttr(wrapper, 'questionCard', 'div');
     expect(Component).toHaveLength(1);
   });
 
   test('Should render properly categoryText when currentQuestions = 0', () => {
-    const questionText = findByTestAttr(wrapper, 'categoryText');
+    const questionText = findByTestAttr(wrapper, 'categoryText', 'h4');
     expect(questionText.text()).toEqual(questionsList[0].category);
   });
 
   test('Should render properly questionText when currentQuestions = 0', () => {
-    const questionText = findByTestAttr(wrapper, 'questionText');
+    const questionText = findByTestAttr(wrapper, 'questionText', 'h5');
     expect(questionText.text()).toEqual(questionsList[0].question);
   });
 

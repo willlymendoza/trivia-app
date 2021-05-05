@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, ReactWrapper } from 'enzyme';
+import { mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
 import { findByTestAttr } from '../../utils/test';
 import { AppStateContext } from '../../context/AppContext';
 import { initialState } from '../../context/AppContext/initialState';
@@ -20,7 +20,7 @@ const answersList: Answer[] = [
 const setup = (props?: State) => {
   const state = { ...initialState, answersList, ...props };
 
-  console.log('STATE: ', state);
+  /*   console.log('STATE: ', state); */
   return mount(
     <AppStateContext.Provider value={{ state, dispatch }}>
       <ResultsCard />
@@ -29,19 +29,21 @@ const setup = (props?: State) => {
 };
 
 describe('ResultCard component', () => {
-  let wrapper: ReactWrapper;
+  let wrapper: ReactWrapper | ShallowWrapper;
 
   beforeEach(() => {
     wrapper = setup();
   });
 
+  afterEach(() => wrapper.unmount());
+
   test('Should render properly', () => {
-    const mainPageComponent = findByTestAttr(wrapper, 'resultsCard');
-    expect(mainPageComponent).toHaveLength(1);
+    const mainComponent = findByTestAttr(wrapper, 'resultsCard', 'div');
+    expect(mainComponent).toHaveLength(1);
   });
 
   test('should show final score', () => {
-    const scoreResult = findByTestAttr(wrapper, 'scoreResult');
+    const scoreResult = findByTestAttr(wrapper, 'scoreResult', 'h5');
     const result = answersList.filter((answer) => answer.result).length;
     const totalAnswers = answersList.length;
     const scoreText = `${result} / ${totalAnswers}`;
@@ -50,8 +52,11 @@ describe('ResultCard component', () => {
   });
 
   test('should render resultsList', () => {
-    const resultsList = findByTestAttr(wrapper, 'resultsList');
-    const resultItem = findByTestAttr(wrapper, 'resultItem');
+    wrapper.unmount();
+    wrapper = setup();
+    const resultsList = findByTestAttr(wrapper, 'resultsList', 'div').at(0);
+    const resultItem = findByTestAttr(wrapper, 'resultItem', 'div');
+
     expect(resultsList).toHaveLength(1);
     expect(resultItem).toHaveLength(answersList.length);
   });

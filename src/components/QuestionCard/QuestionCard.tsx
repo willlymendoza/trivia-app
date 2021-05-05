@@ -36,8 +36,8 @@ const QuestionCard = () => {
         {category}
       </Typography>
 
-      <Grid container justify="center" item data-test="questionText">
-        <Typography variant="h5">
+      <Grid container justify="center" item>
+        <Typography variant="h5" data-test="questionText">
           {decode(question, { level: 'html5' })}
         </Typography>
       </Grid>
