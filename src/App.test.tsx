@@ -1,13 +1,11 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
-import { findByTestAttr } from './utils/test';
 import { AppStateContext } from './context/AppContext';
 import { initialState } from './context/AppContext/initialState';
 import { QuestionData, State } from './interfaces';
 import App from './App';
 
 const dispatch = jest.fn();
-const fetchQuestionsList = jest.fn();
 const questionsList: QuestionData[] = [
   {
     category: 'Category 1',
@@ -45,7 +43,7 @@ describe('App component', () => {
   });
 
   test('Should render properly', () => {
-    const mainPageComponent = findByTestAttr(wrapper, 'mainPage');
+    const mainPageComponent = wrapper.find('HomePage');
     expect(mainPageComponent).toHaveLength(1);
   });
 
