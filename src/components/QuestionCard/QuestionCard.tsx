@@ -1,7 +1,7 @@
-import { Button, Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import { useAppContext } from '../../context/AppContext';
 import { Answer } from '../../interfaces';
+import { Button, Grid, Typography } from '@material-ui/core';
 import { decode } from 'html-entities';
 
 const QuestionCard = () => {

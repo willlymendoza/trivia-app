@@ -1,5 +1,5 @@
-import { Button, Grid } from '@material-ui/core';
 import React from 'react';
+import { Button, Grid } from '@material-ui/core';
 import { useAppContext } from '../../context/AppContext';
 
 const HomePage = () => {
