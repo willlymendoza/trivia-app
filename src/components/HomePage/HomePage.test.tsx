@@ -24,23 +24,23 @@ describe('HomePage component', () => {
   });
 
   test('Should render properly', () => {
-    const mainPageComponent = findByTestAttr(wrapper, 'mainPage');
+    const mainPageComponent = findByTestAttr(wrapper, 'mainPage', 'div');
     expect(mainPageComponent).toHaveLength(1);
   });
 
   test('should render Loading questions text when isLoading = true', () => {
     const wrapper = setup({ ...initialState, isLoading: true });
-    const beginButton = findByTestAttr(wrapper, 'beginButton');
+    const beginButton = findByTestAttr(wrapper, 'beginButton', 'button');
     expect(beginButton.text()).toEqual('Loading questions...');
   });
 
   test('should render "BEGIN" text when isLoading = false', () => {
-    const beginButton = findByTestAttr(wrapper, 'beginButton');
+    const beginButton = findByTestAttr(wrapper, 'beginButton', 'button');
     expect(beginButton.text()).toEqual('BEGIN');
   });
 
   test('should call disptach when beginButton is clicked', () => {
-    const beginButton = findByTestAttr(wrapper, 'beginButton');
+    const beginButton = findByTestAttr(wrapper, 'beginButton', 'button');
     beginButton.simulate('click');
     expect(dispatch.mock.calls.length).toEqual(1);
   });
